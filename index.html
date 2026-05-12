@@ -215,13 +215,13 @@ body{font-family:'Balsamiq Sans',cursive;background:var(--parch);color:var(--ink
 .photo-btn{padding:.65rem 1.8rem;border:1px solid var(--navy2);background:var(--navy2);
   color:var(--gold2);font-family:'Balsamiq Sans',cursive;font-size:.73rem;
   font-weight:700;letter-spacing:2.5px;cursor:pointer;border-radius:2px;
-  transition:background .25s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.22,1,.36,1),box-shadow .25s cubic-bezier(.4,0,.2,1)}
+  transition:background .2s,transform .15s,box-shadow .2s}
 .photo-btn:hover{background:var(--navy);box-shadow:0 4px 14px rgba(10,14,22,.3);transform:translateY(-2px)}
 .photo-counter{font-family:'Balsamiq Sans',cursive;font-style:italic;color:var(--muted);
   font-size:1rem;min-width:52px;text-align:center}
 .photo-dots{display:flex;gap:7px;margin-top:1.5rem}
 .dot{width:7px;height:7px;border-radius:50%;background:rgba(30,45,74,.2);cursor:pointer;
-  transition:background .3s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.22,1,.36,1)}
+  transition:background .3s,transform .3s}
 .dot.active{background:var(--navy2);transform:scale(1.35)}
 .photo-tip{margin-top:1.8rem;padding:.85rem 1.3rem;border:1px dashed rgba(201,168,76,.4);
   border-radius:2px;font-size:.78rem;color:var(--muted);text-align:center;line-height:1.8;
@@ -253,7 +253,7 @@ body{font-family:'Balsamiq Sans',cursive;background:var(--parch);color:var(--ink
 }
 .quiz-progress-fill{
   height:100%;background:linear-gradient(90deg,var(--navy2),var(--gold));
-  border-radius:2px;transition:width .5s cubic-bezier(.22,1,.36,1)
+  border-radius:2px;transition:width .35s ease
 }
 .quiz-q{
   font-family:'Balsamiq Sans',cursive;font-size:clamp(1.15rem,3.5vw,1.45rem);
@@ -264,7 +264,7 @@ body{font-family:'Balsamiq Sans',cursive;background:var(--parch);color:var(--ink
   display:block;width:100%;text-align:left;padding:.95rem 1.15rem;
   font-family:'Balsamiq Sans',cursive;font-size:.88rem;color:var(--mid);
   background:white;border:1px solid rgba(30,45,74,.14);border-radius:3px;
-  cursor:pointer;transition:border-color .2s cubic-bezier(.4,0,.2,1),background .2s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.22,1,.36,1),box-shadow .2s cubic-bezier(.4,0,.2,1);
+  cursor:pointer;transition:border-color .2s,background .2s,transform .15s,box-shadow .2s;
   line-height:1.45
 }
 .quiz-choice:hover{
@@ -289,7 +289,7 @@ body{font-family:'Balsamiq Sans',cursive;background:var(--parch);color:var(--ink
   padding:.65rem 1.8rem;border:1px solid var(--navy2);background:var(--navy2);
   color:var(--gold2);font-family:'Balsamiq Sans',cursive;font-size:.73rem;
   font-weight:700;letter-spacing:2.5px;cursor:pointer;border-radius:2px;
-  transition:background .25s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.22,1,.36,1),box-shadow .25s cubic-bezier(.4,0,.2,1)
+  transition:background .2s,transform .15s,box-shadow .2s
 }
 .quiz-restart:hover{background:var(--navy);box-shadow:0 4px 14px rgba(10,14,22,.3);transform:translateY(-2px)}
 .quiz-hidden{display:none!important}
@@ -374,6 +374,7 @@ footer p{color:rgba(232,204,128,.5);font-family:'Balsamiq Sans',cursive;font-sty
     </div>
     <div class="photo-dots" id="dots"></div>
     <div class="photo-tip">
+
     </div>
   </div>
 </section>
@@ -1276,15 +1277,7 @@ setTimeout(launchConfetti,350);
      finalPos:new THREE.Vector3(.95,2.28,.38),   initRot:[-.2,.08,.12],
      modal:()=>`<h2 class="m-title">suhani's makeup brush set 💄</h2>
       <p class="m-sub">yes. MINE. we've been over this.</p><div class="m-rule"></div>
-      <p style="font-family:'Balsamiq Sans',cursive;font-style:italic;color:var(--mid);line-height:2;font-size:1rem;margin-bottom:1rem">
-        so there we were. one brush. a very heated (fake) argument.
-        i said "that's my concealer brush" —
-        likhitha looked at it and said "no... that's a blush brush."
-        i said "it's a concealer brush."
-        you said "blush brush."
-        we genuinely debated this for way too long.
-        (it's a concealer brush. i know my own brushes.) 💅
-      </p>
+      
       <ul class="brush-list">
         <li>🖌 blush brush &nbsp;—&nbsp; also mine</li>
         <li>🖌 concealer brush &nbsp;—&nbsp; <strong>MINE. not a blush brush. a concealer brush.</strong></li>
@@ -1757,7 +1750,7 @@ setTimeout(launchConfetti,350);
     if(busy||idx===current)return;busy=true;
     const dir=idx>current?'next':'prev';
     const top=stage.querySelector('[data-layer="0"]');
-    top.style.transition='transform .45s cubic-bezier(.4,0,.6,1),opacity .4s cubic-bezier(.4,0,.2,1)';
+    top.style.transition='transform .45s cubic-bezier(.55,0,1,.45),opacity .4s ease';
     top.classList.add(dir==='next'?'exit-right':'exit-left');
     await new Promise(r=>setTimeout(r,440));
     current=idx;renderStack();
