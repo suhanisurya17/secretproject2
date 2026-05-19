@@ -189,6 +189,30 @@ body{font-family:'Balsamiq Sans',cursive;background:var(--parch);color:var(--ink
 @keyframes smiskipulse{0%,100%{filter:drop-shadow(0 0 10px rgba(100,255,140,.6))}
   50%{filter:drop-shadow(0 0 22px rgba(100,255,140,1))}}
 
+/* ── GIFT CARD ── */
+.gift-section{padding:5rem 1.5rem;background:var(--cream);text-align:center}
+.gift-card-wrap{display:flex;justify-content:center;margin-top:1rem}
+.gift-card{background:linear-gradient(135deg,#1a0a0f 0%,#2d0d1a 50%,#1a0a0f 100%);
+  border:1px solid rgba(201,168,76,.4);border-radius:8px;padding:2.5rem 3rem;
+  max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35);
+  display:flex;flex-direction:column;align-items:center;gap:1rem;
+  position:relative;overflow:hidden}
+.gift-card::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 20%,rgba(201,168,76,.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 80%,rgba(201,168,76,.08) 0%,transparent 60%);
+  pointer-events:none}
+.gift-card-logo{font-family:'Balsamiq Sans',cursive;font-size:1.8rem;font-weight:700;
+  letter-spacing:6px;color:#fff;position:relative}
+.gift-card-tagline{font-family:'Balsamiq Sans',cursive;font-style:italic;
+  font-size:.88rem;color:rgba(201,168,76,.7);letter-spacing:1.5px;position:relative}
+.gift-card-btn{display:inline-block;margin-top:.5rem;padding:.75rem 2rem;
+  background:var(--gold);color:#1a0a0f;font-family:'Balsamiq Sans',cursive;
+  font-size:.78rem;font-weight:700;letter-spacing:2.5px;text-decoration:none;
+  border-radius:3px;position:relative;
+  transition:background .25s,transform .2s,box-shadow .25s}
+.gift-card-btn:hover{background:var(--gold2);transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(201,168,76,.4)}
+
 /* ── PHOTOS ── */
 .photos-section{padding:5rem 1.5rem;background:var(--cream)}
 .gallery-wrap{max-width:800px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
@@ -394,6 +418,23 @@ footer p{color:rgba(232,204,128,.5);font-family:'Balsamiq Sans',cursive;font-sty
         <p class="quiz-result-body" id="quiz-result-body"></p>
         <button type="button" class="quiz-restart" id="quiz-restart">take it again</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEPHORA GIFT CARD ═══ -->
+<section class="gift-section">
+  <p class="sec-label">✦ &nbsp; a little something &nbsp; ✦</p>
+  <h2 class="sec-title">your gift 🎁</h2>
+  <p class="sec-sub">because you deserve to treat yourself</p>
+  <div class="rule"><span class="rule-orn">✦ ✦ ✦</span></div>
+  <div class="gift-card-wrap">
+    <div class="gift-card">
+      <div class="gift-card-logo">SEPHORA</div>
+      <div class="gift-card-tagline">a gift card, just for you</div>
+      <a class="gift-card-btn" href="https://eGft.in/PblUFcDybN0xBCb" target="_blank" rel="noopener">
+        claim your gift card →
+      </a>
     </div>
   </div>
 </section>
@@ -1251,6 +1292,9 @@ setTimeout(launchConfetti,350);
       <div class="letter-body">
         <p class="letter-greeting">dear likhitha,</p>
         <p>thanks for being such a great friend! i love all the amazing memories we have together.</p>
+        <p style="margin-top:1rem">you have this incredible way of making everyone around you feel seen and loved and you are so intentional.</p>
+        <p style="margin-top:1rem">i really enjoy the time we spend watching OTH and discussing our very DIFFERENT opinions on Peyton.</p>
+        <p style="margin-top:1rem">we will acheive our dream one day trust. (jk)</p>
         <p style="margin-top:1rem">you have this incredible way of making everyone around you feel seen and loved and you are so intentional.</p>
         <p style="margin-top:1rem">i made this website for you with all these random things that remind me about you.</p>
         <p class="letter-sign">happiest bday from susu 💕</p>
