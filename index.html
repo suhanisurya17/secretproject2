@@ -344,6 +344,42 @@ footer p{color:rgba(232,204,128,.5);font-family:'Balsamiq Sans',cursive;font-sty
 </head>
 <body>
 
+<!-- PASSWORD GATE -->
+<div id="pw-gate" style="position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(158deg,#080D15 0%,#111827 50%,#1A1008 100%)">
+  <p style="font-family:'Balsamiq Sans',cursive;color:#C9A84C;letter-spacing:3px;font-size:.8rem;margin-bottom:1.2rem">ENTER PASSWORD</p>
+  <input id="pw-input" type="password" style="font-family:'Balsamiq Sans',cursive;background:transparent;border:1px solid rgba(201,168,76,.4);color:#E8CC80;padding:.6rem 1.2rem;font-size:1rem;letter-spacing:2px;outline:none;border-radius:2px;text-align:center;width:220px" placeholder="••••••••••••" />
+  <p id="pw-err" style="color:#C4603A;font-size:.72rem;letter-spacing:2px;margin-top:.8rem;opacity:0">incorrect password</p>
+</div>
+<script>
+(function(){
+  var gate=document.getElementById('pw-gate');
+  var input=document.getElementById('pw-input');
+  var err=document.getElementById('pw-err');
+  var H='054314edfe8f08f5d50d6094b5fd28ac6843c4e714bb451c7de812f4db50c2f9';
+  function sha256(str){
+    return crypto.subtle.digest('SHA-256',new TextEncoder().encode(str))
+      .then(function(buf){
+        return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+      });
+  }
+  input.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){
+      sha256(input.value).then(function(hash){
+        if(hash===H){
+          gate.style.transition='opacity .6s ease';
+          gate.style.opacity='0';
+          setTimeout(function(){gate.remove()},650);
+        } else {
+          err.style.opacity='1';
+          input.value='';
+          setTimeout(function(){err.style.opacity='0'},2000);
+        }
+      });
+    }
+  });
+})();
+</script>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-deco" style="left:4%;top:16%;animation-delay:0s">✈</div>
